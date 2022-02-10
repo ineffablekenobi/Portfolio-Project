@@ -7,29 +7,35 @@ body {
 header{
     display: flex;
     justify-content: space-between;
+    z-index: 1;
     .name{
         text-decoration: none;
         color: black;
         margin-top: 1.9em;
-        margin-left: 2em;
-        font-size: larger;
+        margin-left: 0.5em;
+        font-size: 1.5rem;
         font-weight: bold;
+        color:white;
     }
 
     nav{
         transform: translateX(100%);
+        transition: transform .5s ease-in-out;
         position: fixed;
         right: 0;   
         z-index: 123213;
         background-color: rgba(250, 218, 187, 0.87);
         margin: -1.5em;
 
-        svg{
-            float: right;
-            margin: 2em;
+        .closeBtn{
+            svg{
+                float: right;
+                margin: 2em;
+            }
         }
 
         ul{
+    
             height: 100vh;
             display: block;
             list-style: none;
@@ -53,8 +59,76 @@ header{
 
 }
 
+.hero-content{
+    .first-intro{
+        position: absolute;
+        z-index: 0;
+        margin-top: 10em;
+        margin-left: 2em;
+        color: white;
+        opacity: 0;
+        p{
+            font-size: large;
+        }
+        animation: textload 2s ease-in-out forwards;
+    }
+    .hero-img{
+        position:absolute;
+        z-index: -1;
+        background-image: url('/assets/images/hero-img.png');
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-size: cover;
+        background-position: 20%;
+        background-color: black;
+        animation: introload 1.5s ease-in-out forwards;
+        
+    }
+
+    svg{
+        position: absolute;
+        z-index: 2;
+        right: 0;
+        height: 10vh;
+        width: 8%;
+        margin-right: 1em;
+        padding-right: 1.5em;
+        -webkit-filter: invert(100%); /* safari 6.0 - 9.0 */
+        filter: invert(100%);       
+    }
+
+}
+
+.down-arrow{
+    svg{
+        position: absolute;
+        z-index: 2;
+        left: 0;
+        bottom: 0;
+        height: 9vh;
+        width: 7%;
+        margin-left: 1em;
+        padding-left: 1em;
+        margin-bottom: 3em;
+        -webkit-filter: invert(100%); /* safari 6.0 - 9.0 */
+        filter: invert(100%);
+        animation: arrowupdown .8s alternate-reverse infinite;  
+    }
+}
+
+.open-nav{
+    transform: translateX(0%);
+}
 
 @media screen and (min-width: 720px) {
+    .hero-content{
+        svg{
+            display: none;
+        }
+    }
+
     header{
 
        nav{
@@ -72,8 +146,48 @@ header{
                   padding-left: 0em;
                   padding-right: 0em;
                   margin-right: 1.5em;
+                  a{
+                      color: white;
+                  }
               }
            }
        }
     }
 }
+
+@keyframes introload{
+    from{
+        clip-path: polygon(0 0, 40% 0, 40% 100%, 0 100%);
+        //clip-path: polygon(0 0, 100% 0, 100% 18%, 0 18%);
+
+    }to{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+       //clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+
+    }
+}
+
+@keyframes arrowupdown{
+    from{
+        opacity: 0.5;
+        transform: translateY(-15%);
+
+    }to{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes textload {
+
+    from{
+        transform: translateX(-100%);
+    }to{
+        transform: translateY(0%);
+        opacity: 1;
+    }
+    
+}
+
+
+

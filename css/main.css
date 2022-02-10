@@ -10,20 +10,26 @@ header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  z-index: 1;
 }
 
 header .name {
   text-decoration: none;
   color: black;
   margin-top: 1.9em;
-  margin-left: 2em;
-  font-size: larger;
+  margin-left: 0.5em;
+  font-size: 1.5rem;
   font-weight: bold;
+  color: white;
 }
 
 header nav {
   -webkit-transform: translateX(100%);
           transform: translateX(100%);
+  -webkit-transition: -webkit-transform .5s ease-in-out;
+  transition: -webkit-transform .5s ease-in-out;
+  transition: transform .5s ease-in-out;
+  transition: transform .5s ease-in-out, -webkit-transform .5s ease-in-out;
   position: fixed;
   right: 0;
   z-index: 123213;
@@ -31,7 +37,7 @@ header nav {
   margin: -1.5em;
 }
 
-header nav svg {
+header nav .closeBtn svg {
   float: right;
   margin: 2em;
 }
@@ -58,7 +64,74 @@ header nav ul li a {
   line-height: 2rem;
 }
 
+.hero-content .first-intro {
+  position: absolute;
+  z-index: 0;
+  margin-top: 10em;
+  margin-left: 2em;
+  color: white;
+  opacity: 0;
+  -webkit-animation: textload 2s ease-in-out forwards;
+          animation: textload 2s ease-in-out forwards;
+}
+
+.hero-content .first-intro p {
+  font-size: large;
+}
+
+.hero-content .hero-img {
+  position: absolute;
+  z-index: -1;
+  background-image: url("/assets/images/hero-img.png");
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: 20%;
+  background-color: black;
+  -webkit-animation: introload 1.5s ease-in-out forwards;
+          animation: introload 1.5s ease-in-out forwards;
+}
+
+.hero-content svg {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  height: 10vh;
+  width: 8%;
+  margin-right: 1em;
+  padding-right: 1.5em;
+  -webkit-filter: invert(100%);
+  /* safari 6.0 - 9.0 */
+  filter: invert(100%);
+}
+
+.down-arrow svg {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  bottom: 0;
+  height: 9vh;
+  width: 7%;
+  margin-left: 1em;
+  padding-left: 1em;
+  margin-bottom: 3em;
+  -webkit-filter: invert(100%);
+  /* safari 6.0 - 9.0 */
+  filter: invert(100%);
+  animation: arrowupdown .8s alternate-reverse infinite;
+}
+
+.open-nav {
+  -webkit-transform: translateX(0%);
+          transform: translateX(0%);
+}
+
 @media screen and (min-width: 720px) {
+  .hero-content svg {
+    display: none;
+  }
   header nav {
     -webkit-transform: translateX(0%);
             transform: translateX(0%);
@@ -81,6 +154,81 @@ header nav ul li a {
     padding-left: 0em;
     padding-right: 0em;
     margin-right: 1.5em;
+  }
+  header nav ul li a {
+    color: white;
+  }
+}
+
+@-webkit-keyframes introload {
+  from {
+    -webkit-clip-path: polygon(0 0, 40% 0, 40% 100%, 0 100%);
+            clip-path: polygon(0 0, 40% 0, 40% 100%, 0 100%);
+  }
+  to {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+@keyframes introload {
+  from {
+    -webkit-clip-path: polygon(0 0, 40% 0, 40% 100%, 0 100%);
+            clip-path: polygon(0 0, 40% 0, 40% 100%, 0 100%);
+  }
+  to {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+@-webkit-keyframes arrowupdown {
+  from {
+    opacity: 0.5;
+    -webkit-transform: translateY(-15%);
+            transform: translateY(-15%);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+}
+
+@keyframes arrowupdown {
+  from {
+    opacity: 0.5;
+    -webkit-transform: translateY(-15%);
+            transform: translateY(-15%);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+}
+
+@-webkit-keyframes textload {
+  from {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  to {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes textload {
+  from {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  to {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+    opacity: 1;
   }
 }
 /*# sourceMappingURL=main.css.map */
