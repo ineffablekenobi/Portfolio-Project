@@ -141,7 +141,7 @@ header nav ul li a {
 
 .slider-bottom .slider-footer {
   position: fixed;
-  bottom: 5px;
+  bottom: 10px;
   right: 15px;
   z-index: 1111;
 }
@@ -285,6 +285,9 @@ header nav ul li a {
 }
 
 @media screen and (min-width: 720px) {
+  .slider-bottom {
+    display: none;
+  }
   .ProjectVisualName {
     text-align: left;
     padding-left: 6%;

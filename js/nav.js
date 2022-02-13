@@ -8,3 +8,6 @@ mobileMenuBtn.addEventListener('click', ()=>{
 mobileMenuClose.addEventListener('click', ()=>{
     nav.classList.remove('open-nav')
 })
+
+
+var downArrow = document.querySelector('.down-arrow')
