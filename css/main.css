@@ -109,8 +109,8 @@ header nav ul li a {
   position: absolute;
   z-index: 2;
   right: 0;
-  height: 10vh;
-  width: 8%;
+  height: 15vh;
+  width: 15%;
   margin-right: 1em;
   padding-right: 1.5em;
   -webkit-filter: invert(100%);
@@ -123,8 +123,8 @@ header nav ul li a {
   z-index: 2;
   left: 0;
   bottom: 0;
-  height: 9vh;
-  width: 7%;
+  height: 15vh;
+  width: 15%;
   margin-left: 1em;
   padding-left: 1em;
   margin-bottom: 3em;
